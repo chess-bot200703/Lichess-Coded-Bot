@@ -103,7 +103,7 @@ challenge:                   # incoming challenges
     - correspondence
   modes:                     # game modes to accept
     - casual                 # unrated games
-    - rated                  # rated games - must comment if the engine doesn't try to win
+#    - rated                  # rated games - must comment if the engine doesn't try to win
   
   greeting:
     # Optional substitution keywords (include curly braces):
