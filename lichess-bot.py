@@ -236,6 +236,7 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
     conversation.send_reply(SendLine('player'), f'Good Luck {opponent}!')
     conversation.send_reply(SendLine('player'), f'Type #help for list of commands I can Reply to.Thanks for playing with me')
     conversation.send_reply(SendLine('spectator'), f'Thanks for spectating me!')
+    conversation.send_reply(SendLine('spectator'), f'Type #help for list of commands I can reply to!')
     
     variant=game.perf_name
       
