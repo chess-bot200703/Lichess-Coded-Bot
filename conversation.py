@@ -26,7 +26,7 @@ class Conversation:
             self.send_reply(line, "Waiting 60 seconds...")
         elif cmd == "name":
             name = game.me.name
-            self.send_reply(line, "{} running {} (lichess-bot v{}) on f2022-fifa.herokuapp.com".format(name, self.engine.name(), self.version))
+            self.send_reply(line, "{} running {} (lichess-bot v{}) on banzbinz3.herokuapp.com".format(name, self.engine.name(), self.version))
         elif cmd == "owner":
             self.send_reply(line, "@EshanHasaranga200703")
         elif cmd == "howto":
