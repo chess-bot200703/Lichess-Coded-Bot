@@ -11,7 +11,7 @@ class Conversation:
         self.version = version
         self.challengers = challenge_queue
 
-    command_prefix = "?"
+    command_prefix = ""
 
     def react(self, line, game):
         logger.info("*** {} [{}] {}: {}".format(self.game.url(), line.room, line.username, line.text.encode("utf-8")))
@@ -20,7 +20,7 @@ class Conversation:
 
     def command(self, line, game, cmd):
         if cmd == "list" or cmd == "help":
-            self.send_reply(line, "Supported commands: ?wait, ?name, ?howto, ?eval, ?queue,?owner,?list")
+            self.send_reply(line, "Supported commands: wait, name, howto, eval, queue,owner,list")
         elif cmd == "wait" and game.is_abortable():
             game.ping(60, 120)
             self.send_reply(line, "Waiting 60 seconds...")
