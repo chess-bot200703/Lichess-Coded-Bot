@@ -11,7 +11,7 @@ class Conversation:
         self.version = version
         self.challengers = challenge_queue
 
-    command_prefix = "{"
+    command_prefix = "!"
 
     def react(self, line, game):
         logger.info("*** {} [{}] {}: {}".format(self.game.url(), line.room, line.username, line.text.encode("utf-8")))
@@ -19,29 +19,27 @@ class Conversation:
             self.command(line, game, line.text[1:].lower())
 
     def command(self, line, game, cmd):
-        if cmd == "list}" or cmd == "help}":
-            self.send_reply(line, "Supported commands: {wait}, {name}, {howto}, {queue},{owner},{list}")
-        elif cmd == "wait}" and game.is_abortable():
+        if cmd == "commands" or cmd == "help":
+            self.send_reply(line, "Supported commands: !wait,!name,!howto,!queue,!owner!,!commands")
+        elif cmd == "wait" and game.is_abortable():
             game.ping(60, 120)
             self.send_reply(line, "Waiting 60 seconds...")
-        elif cmd == "name}":
+        elif cmd == "name":
             name = game.me.name
             self.send_reply(line, "{} running {} (lichess-bot v{}) ".format(name, self.engine.name(), self.version))
-        elif cmd == "owner}":
-            self.send_reply(line, "Sorry,IP address is hided..")
-        elif cmd == "howto}":
+        elif cmd == "owner":
+            self.send_reply(line, "@Joseph772")
+        elif cmd == "howto":
             self.send_reply(line, "How to run your own bot: Check out @EshanHasaranga200703 's blog about making lichess bots")
-        elif cmd == "eval}":
+        elif cmd == "eval":
             stats = self.engine.get_stats()
             self.send_reply(line, ", ".join(stats))
-        elif cmd == "eval}":
-            self.send_reply(line, "{eval} ?..Seems that command doesn't support for me..Try {help} :) ")
-        elif cmd == "queue}":
+        elif cmd == "queue":
             if self.challengers:
                 challengers = ", ".join(["@" + challenger.challenger_name for challenger in reversed(self.challengers)])
                 self.send_reply(line, "Challenge queue: {}".format(challengers))
             else:
-                self.send_reply(line, "No challenges queued.You can challenge me if i'm not playing 2 games with humans..")
+                self.send_reply(line, "No challenges curruntly queued.You can challenge me if I'm not playing 3 games right now.")
 
     def send_reply(self, line, reply):
         self.xhr.chat(self.game.id, line.room, reply)
