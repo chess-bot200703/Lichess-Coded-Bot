@@ -1,4 +1,4 @@
-token: "lip_VXHp9KK30muAInGSAWoU"    # Lichess OAuth2 Token.
+token: "lip_qIDkT8agmMnADTx6Rlr9"    # Lichess OAuth2 Token.
 url: "https://lichess.org/"  # Lichess base URL.
 
 engine:                      # Engine settings.
@@ -83,24 +83,24 @@ challenge:                   # incoming challenges
   accept_bot: true          # accepts challenges coming from other bots
   only_bot: false            # accept challenges by bots only
   max_increment: 20         # maximum amount of increment to accaept a challenge. the max is 180. set to 0 for no increment
-  min_increment: 1           # minimum amount of increment to accept a challenge
+  min_increment: 0           # minimum amount of increment to accept a challenge
   variants:                  # chess variants to accept (http://lichess.org/variant)
     - standard
 #   - fromPosition
     - antichess
     - atomic
     - chess960
-    - crazyhouse
-    - horde
-    - kingOfTheHill
-    - racingKings
+#    - crazyhouse
+#    - horde
+#    - kingOfTheHill
+#    - racingKings
     - threeCheck
   time_controls:             # time controls to accept
     - bullet
     - blitz
     - rapid
     - classical
-    - correspondence
+#    - correspondence
   modes:                     # game modes to accept
     - casual                 # unrated games
     - rated                  # rated games - must comment if the engine doesn't try to win
