@@ -90,11 +90,11 @@ challenge:                   # incoming challenges
     - antichess
     - atomic
     - chess960
-#    - crazyhouse
-#    - horde
-#    - kingOfTheHill
-#    - racingKings
-#    - threeCheck
+#   - crazyhouse
+#   - horde
+#   - kingOfTheHill
+#   - racingKings
+#   - threeCheck
   time_controls:             # time controls to accept
     - bullet
     - blitz
